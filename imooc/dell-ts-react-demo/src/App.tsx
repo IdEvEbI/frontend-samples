@@ -3,19 +3,21 @@ import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './login.css'
 
+interface LoginFormData {
+  username: string
+  password: string
+}
+
 export default () => {
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values)
+    const data: LoginFormData = values
+
+    console.log('表单数据：', data.username, data.password)
   }
 
   return (
     <div id="login-page">
-      <Form
-        name="normal_login"
-        className="login-form"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-      >
+      <Form name="normal_login" className="login-form" onFinish={onFinish}>
         <Form.Item
           name="username"
           rules={[{ required: true, message: '请输入用户名。' }]}
@@ -37,7 +39,6 @@ export default () => {
             autoComplete="current-password"
           />
         </Form.Item>
-
         <Form.Item>
           <Button
             type="primary"
