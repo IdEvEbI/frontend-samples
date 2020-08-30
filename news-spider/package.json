@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "build": "tsc --outFile dist/spider.js src/index.ts"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
